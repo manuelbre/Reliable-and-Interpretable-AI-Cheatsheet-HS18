@@ -355,7 +355,7 @@ language=C}
             $\begin{array} { l l } { \text { find } } & { \theta } \\ { \text { maximize } } & { \rho ( \theta ) } \\ { \text { where } } & { \rho ( \theta ) = \mathbf { E } _ { s - D } [ \forall \mathbf { z } \cdot \phi ( \mathbf { z } , s , \theta ) ] } \end{array}$
             \item Translate into loss:\\
             $\begin{array} {l l l l } 
-            { \text { find } } & { \theta } \\ { \text { minimize }  & { \rho ( \theta )}} \\
+            { \text { find } } & { \theta } \\ { \text { minimize }}  & { \rho ( \theta )} \\
             { \text { where } } & {\rho ( \theta ) = \mathbf { E } _ { s \sim D } \left[ \mathrm { T } ( \phi ) \left( z _ { \text { worst }} , s , \theta \right) \right]} \\
             {\text{and}} & {z _ {\text { worst }} = \arg \min _ { Z } ( \mathrm { T } ( \neg \phi ) ( z , s , \theta ) )}
             \end{array}$\\
@@ -389,7 +389,6 @@ language=C}
 			\subsection*{Interval Domain}
 			Input $x$ is in the form of $x = [a,b]$. \\
 			
-			\newline
 			\textbf{Operation Rules}\\
 			Addition: $x_1+x_2 = [x_1[0] + x_2[0], x_1[1] + x_2[1]]$\\
 			Substract.: $[x_1, x_2] - [y_1, y_2] = [x_1-y_2, x_2-y_1]$\\
@@ -398,9 +397,10 @@ language=C}
 			& \qquad \max(x_1 y_1,x_1 y_2,x_2 y_1,x_2 y_2)]\end{aligned}$\\
 			Multipl Scalar: $x_1 \cdot a = [l, u], \\ 
 			\text{with } l= min(x[0]\cdot a, x[1] \cdot a), u = max(x[0] \cdot a, x[1]\cdot a)$\\
-			Funct.: $\begin{aligned}[t] f([y_{1},y_{2}]) & =\left[\min \left\{f(y_{1}),f(y_{2})\right\},\\
-			& \qquad \max \left\{f(y_{1}),f(y_{2})\right\}\right]] \end{aligned}$\\
-			Lower Equal: $\begin{aligned}[t] \leq \left( \left[ l _ { 1 } , u _ { 1 } \right] , \left[ l _ { 2 } , u _ { 2 } \right] \right) & = \left( \left[ l _ { 1 } , u _ { 1 } \right]\right \sqcap _ { i } \left[ - \infty , u _ { 2 } \right]  \\
+			Funct.: $\begin{aligned}[t]
+			f([y_{1},y_{2}]) & = [ \min \left\{f(y_{1}),f(y_{2})\right\},\\
+			& \qquad \max \left\{f(y_{1}),f(y_{2})\right\} ] \end{aligned}$\\
+			Lower Equal: $\begin{aligned}[t] \leq \left( \left[ l _ { 1 } , u _ { 1 } \right] , \left[ l _ { 2 } , u _ { 2 } \right] \right) & = ( \left[ l _ { 1 } , u _ { 1 } \right] \sqcap _ { i } \left[ - \infty , u _ { 2 } \right]  \\
 			& \quad , \left[ l _ { 1 } , \infty \right] \sqcap _ { i } \left[ l _ { 2 } , u _ { 2 } \right])\end{aligned}$
 			\subsection*{Zonotope Abstrac Domain}
 			$\hat { m } = a _ { 0 } ^ { m } + \sum _ { i = 1 } ^ { k } a _ { i } ^ { m } \epsilon _ { i }$\\
@@ -429,12 +429,12 @@ language=C}
 			Operation is not closed. Example of the Operation:\\
 			\includegraphics[width=\linewidth]{join_polytope.png}\\
 			\textbf{ReLU}\\
-			$\begin{array} { l } { f _ { R e L U } ^ { \# } = \operatorname { Re } L U _ { 2 } ^ { \# } ( b ) \circ \operatorname { Re } L U _ { 1 } ^ { \# } ( a ) \text { (Affine) } } \\
-			{ \operatorname {ReLU}} _ { i } ^ { \# } \left( x _ { i } \right) ( \psi ) =
-			{ \mathbin{\textcolor{red} {\psi_ { \left\{ x _ { i } \geq 0 \right\}}}}}
-			\sqcup { \mathbin{\textcolor{green}{\psi _ \left\{ x _ { i } < 0 \right\} }}}
-			\end{array}$, \\
-			\\
+			$\begin{array} { l l }
+			{ f _ { R e L U } ^ { \# } = \operatorname { Re } L U _ { 2 } ^ { \# } ( b ) \circ \operatorname { Re } L U _ { 1 } ^ { \# } ( a ) \text { (Affine) } } \\
+			{ \operatorname {ReLU} _ { i } ^ { \# } \left( x _ { i } \right) ( \psi ) =
+			 \mathbin{\textcolor{red} {\psi_ { \left\{ x _ { i } \geq 0 \right\}}}}
+			\sqcup  \mathbin{\textcolor{green}{\psi _ \left\{ x _ { i } < 0 \right\} \quad \text{,} }}}
+			\end{array} $ \\
 			where
 			$ { \mathbin{\textcolor{red} {\psi_ { \left\{ x _ { i } \geq 0 \right\}}}} = 
 			\left( \psi \sqcap \left\{ x _ { i } \geq 0 \right\} \right)}$ , for which $\sqcap$ is not defined.\\
@@ -450,7 +450,9 @@ language=C}
 			\end{aligned}$
 			
 		\subsection{Train provable robust NN}
-		$\begin{array} { l l } { \text { find } } & { \theta } \\ { \text { minimize } } & { \rho ( \theta ) } \\ { \text { where } } & { \rho ( \theta ) = \mathbf { E } _ { ( x y ) \sim D } \left[ \max _ { z \in \gamma \left( N N ^ { * } ( \alpha ( S ( x ) ) ) \right. } L ( \theta , z , y ) \right] } \end{array}$\\
+		$\begin{array} { l l }
+		{ \text { find } } & { \theta } \\ { \text { minimize } } & { \rho ( \theta ) } \\ { \text { where } } & { \rho ( \theta ) = \mathbf { E } _ { ( x y ) \sim D } \left[ \max _ { z \in \gamma \left( N N ^ { * } ( \alpha ( S ( x ) ) ) \right. } L ( \theta , z , y ) \right] }
+		\end{array}$\\
 		\includegraphics[width=6cm]{Loss_abstract.png}\\
 		Set of $z$ can be large. Instead of enumerate the set first transform it. For each $z_q$ use the following: \\
 		$d_q = z_q - z_y$ and then $u_q = \max \left( \operatorname { box } \left( d _ { q } \right) \right)$
