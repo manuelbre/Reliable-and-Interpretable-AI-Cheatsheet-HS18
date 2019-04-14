@@ -2,9 +2,9 @@
 Cheatsheet for the ETH Zurich [Reliable and Interpretable Artificial Intelligence](https://www.sri.inf.ethz.ch/teaching/riai2018) class autumn 2018. This cheatsheet was created by me based on the lecture material and is not an offical document of the class.
 
 The following topics are included:
-- Fast Gradient Sign Method (FGS)
+- Fast Gradient Sign Method (FGSM)
 - Projected Gradient Descent (PGD)
-- Traing NN with Logic
+- Traing Neural Networks with Logic
 - Certify AI with Abstract Domains
 - Visualization of NN
 - Probabilistic Programming
