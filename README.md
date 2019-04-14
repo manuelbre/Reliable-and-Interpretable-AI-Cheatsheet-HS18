@@ -4,7 +4,7 @@ Cheatsheet for the ETH Zurich [Reliable and Interpretable Artificial Intelligenc
 The following topics are included:
 - Fast Gradient Sign Method (FGSM)
 - Projected Gradient Descent (PGD)
-- Traing Neural Networks with Logic
+- Training Neural Networks with Logic
 - Certify AI with Abstract Domains
 - Visualization of NN
 - Probabilistic Programming
