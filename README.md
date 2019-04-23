@@ -11,4 +11,4 @@ The following topics are included:
 
 Feel free to report mistakes or fork the repo to update the cheat sheet.
 
-Download the latest pdf version [here](https://latexonline.cc/compile?git=https%3A%2F%2Fgithub.com%2Fmanuelbre%2FReliable-and-Interpretable-AI-Cheatsheet-HS18&target=riai18_cheatsheet.tex&command=pdflatex)
+Download the latest pdf version [here](https://latexonline.cc/compile?git=https%3A%2F%2Fgithub.com%2Fmanuelbre%2FReliable-and-Interpretable-AI-Cheatsheet-HS18&target=src/riai18_cheatsheet.tex&command=pdflatex)
